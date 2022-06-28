@@ -1,0 +1,33 @@
+---
+#ansy playbook start with three dash
+#-
+###this minus in yaml indicate a list of items. the play contains a list of play
+  #hosts: client,client1
+  #vars:
+   # motd_redhat: "welcome to redhat linux\n"
+    #motd_ubuntu: "welcome to ubuntu linux \n"
+  
+  #tasks:
+    - name: configure a motd message of the day in redhat
+      copy: #dictionary
+        content: "{{motd_redhat}}"
+        dest: /etc/motd
+      notify: MOTD change in "RedHat"
+      when: ansible_distribution == "RedHat"
+      
+    - name: configure a motd message of the day in ubuntu
+      copy:
+        content: "{{motd_ubuntu}}"
+        dest: /etc/motd    
+      notify: MOTD change in "Ubuntu"  
+      when: ansible_distribution == "Ubuntu"
+#how ansible will know that this is an ubuntu system or this is an redhat system
+      #every task will execute against every inventory
+  #handlers:
+   # - name: MOTD change in "RedHat"
+    #  debug:
+     #   msg: The Motd has changed in redhat
+    #- name: MOTD change in "Ubuntu"
+     # debug:
+      #  msg: The Motd has changed in ubuntu
+    

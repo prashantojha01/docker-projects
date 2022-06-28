@@ -1,0 +1,26 @@
+---
+#ansy playbook start with three dash
+-
+###this minus in yaml indicate a list of items. the play contains a list of play
+  hosts: winhost
+  tasks:
+    - name: choco install package 
+      win_chocolatey: 
+        name: procexp
+        state: present
+    - name: choco install terraform,
+      win_chocolatey: 
+        name: terraform
+        state: present
+    - name: choco install azure cli 
+      win_chocolatey:
+        name: azure-cli
+        state: present 
+    - name: Install git
+      win_chocolatey:
+        name: git
+        state: present
+    - name: install vs code 
+      win_chocolatey:
+        name: vscode 
+        state: present

@@ -1,0 +1,7 @@
+[winhost]
+20.51.243.70
+[winhost:vars]
+ansible_user=ojha
+ansible_password=Admin@123456789
+ansible_connection = winrm
+ansible_winrm_server_cert_validation=ignore

@@ -1,0 +1,9 @@
+
+---
+- name: install epel release
+    #epel enterprise linux it is being specially created for redhat based system
+  dnf:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    update_cache: yes
+    state: present #present or absent
+  when: ansible_distribution == "RedHat"

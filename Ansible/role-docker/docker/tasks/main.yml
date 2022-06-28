@@ -1,0 +1,4 @@
+---
+
+- import_tasks: installdocker.yml 
+# tasks file for docker

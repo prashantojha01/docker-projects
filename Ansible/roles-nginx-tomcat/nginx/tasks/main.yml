@@ -1,0 +1,11 @@
+---
+# tasks file for nginx
+#
+- import_tasks: installepelrelease.yml
+  when: ansible_distribution == "RedHat"
+- import_tasks: installnginx.yml
+  when: ansible_distribution == "RedHat"
+- import_tasks: installpatch.yml
+  when: ansible_distribution == "RedHat"
+- import_tasks: nginx.yml
+  when: ansible_distribution == "RedHat"

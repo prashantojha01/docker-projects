@@ -1,0 +1,7 @@
+#install open jdk
+---
+- name: install java
+  apt:
+        name: default-jdk
+        state: present
+  when: ansible_distribution == "Ubuntu"

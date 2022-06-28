@@ -1,0 +1,5 @@
+---
+-
+  hosts: client1
+  roles:
+    - docker

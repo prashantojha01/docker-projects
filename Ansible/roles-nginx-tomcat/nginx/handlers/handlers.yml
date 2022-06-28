@@ -1,0 +1,18 @@
+---
+
+- name: check http service
+  uri:
+    url: http://{{ ansible_default_ipv4.address }}
+        #gather fact module
+    status_code: 200
+  register: httpvar
+- name:
+  debug:
+    msg: "the status code is : {{httpvar}}"
+- name: Reload Firewalld
+  service:
+    name: firewalld
+    state: reloadedI
+- name:
+  debug:
+    msg: "the firewall is reloaded"

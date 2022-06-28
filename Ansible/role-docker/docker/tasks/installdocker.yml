@@ -1,0 +1,49 @@
+---
+
+- name: update apt
+  apt:
+    update_cache: yes
+
+- name: install prerequisites
+  apt:
+    pkg:
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+    - python3-pip
+    state: latest
+
+# - name: create directory to store keyrings
+#   file:
+#     path: /etc/apt/keyrings
+#     state: directory
+#     owner: root
+#     group: root
+#     mode: 0755
+
+- name: add docker's official gpg
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: add docker repo
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: install docker 
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+      
+
+- name: install docker module for python
+  pip:
+    name: docker
+
+
+    
