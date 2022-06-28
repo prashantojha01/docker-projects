@@ -1,0 +1,10 @@
+vi date-script.sh
+cat date-script.sh
+#!/bin/bash
+echo 'date' >> date-out.txt
+chmod 755 date-script.sh
+*/1 * * * * /bin/bash /root/data-script.sh
+crontab -e
+echo $(date)
+date > date-out.txt
+

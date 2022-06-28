@@ -1,0 +1,103 @@
+##Creating a new user and adding it to the sudoers list
+useradd john
+passwd john
+cat /etc/group
+visudo  ##(it will open the file /etc/ssh/sshd_config file) 
+
+###add below root 
+john    ALL=(ALL)       ALL
+
+###now save and quit
+service sshd restart
+
+###now login using john
+
+####then you can use sudo -i to become root, if we do not add john to the admin group we cannot be sudo user
+###as it will give error that john is not in the sudoers list.
+
+###The user initially created on azure will not be on the sudoers list since it is managed by azure using some arm template so that if u forget
+###the password u can reset it on azure.
+
+#Create Symbolic link
+ln -s <original> <new-link> 
+
+##to delete link
+rm <link>
+unlink <link>
+
+## Create Group and Add User to that Group:
+adduser jerry
+groupadd jenkins
+usermod -G jenkins jerry (jerry added to jenkins group)
+cat /etc/group
+groupadd docker
+usermod -G jenkins,docker jerry (jerry added to docker and jenkins group)
+cat /etc/group
+gpasswd -d jerry docker (remove jerry from docker group)
+
+###To check how many users are there in a group:
+getent group <group-name>
+
+## Change ownership of the file
+chown username:groupname filename
+
+##The ownership of any file in the system may only be altered by a root user. A user cannot give away ownership of a file, 
+##even when the user owns it. Similarly, only a member of a group can change a file's group ID to that group.
+
+###Searching in Linux:
+find . -name test
+find . -iname Test
+find . -iname ".txt"
+find . -name ".txt"
+find . -name "*.txt"
+find / -type f -name test
+find / -type d -name test
+find / -type l -name test
+
+locate -r test
+yum install mlocate
+updatedb
+locate -r test
+history
+
+## Redirect Operator:
+echo "Jerry seinfield is the main character in the show queen" > jeery.txt
+cat jeery.txt
+echo "jerry show wa create in 1989" >> jeery.txt (it appends the data)
+cat jeery.txt
+ls -l > listing (it stores the result of ls -l command in a file called listing)
+
+##Monitoring User
+who (show who is logged in)
+last (shows who all have last logged in)
+w (shows the details of all the users that are logged in on the machine)
+id
+
+#####Talking to all logged in user:
+
+###the root user can broadcast message to all logged in user using command:
+wall
+"hello everyone"
+
+##(press right ctrl d)
+
+###the message will be broadcasted all the logged in users.
+
+###To send msg to particular user:
+write <username>
+"hello buddy"
+##(press right ctrl d)
+##the message will be send to that user only
+
+####OTHER COMMANDS
+date
+time
+uptime
+uname
+uname -a
+which
+cal
+bc
+ps aux
+top
+

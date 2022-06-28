@@ -1,0 +1,29 @@
+firewall-cmd --get-zones
+sudo firewall-cmd --zone=home --change-interface=eth0
+firewall-cmd --get-active-zones
+firewall-cmd --get-services
+#You can get more details about each of these services by looking at their associated .xml file 
+#within the /usr/lib/firewalld/services
+sudo firewall-cmd --zone=public --permanent --add-service=http
+sudo firewall-cmd --zone=public --add-port=5000/tcp
+systemctl status firewalld
+firewall-cmd --state
+firewall-cmd --get-default-zone
+firewall-cmd --get-active-zones
+firewalld-cmd --list-all
+firewall-cmd --list-all
+firewalld-cmd --zone=public --add-service=https
+firewall-cmd --zone=public --add-service=https
+firewall-cmd --zone=public --list-services
+firewall-cmd --zone=public --permanent --add-service=https
+firewall-cmd --zone=public --permanent --list-services
+firewall-cmd --zone=public --permanent --add-port=5000/tcp
+firewall-cmd --zone=public --list-ports
+firewall-cmd --zone=public --permanent --list-ports
+firewall-cmd --zone=public --permanent --add-port=30000-32000/tcp
+firewall-cmd --zone=public --permanent --list-ports
+firewall-cmd --zone=public --permanent --add-port=32000/udp
+firewall-cmd --zone=public --permanent --list-ports
+firewall-cmd --get-services
+firewall-cmd --reload
+
